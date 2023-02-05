@@ -1,0 +1,187 @@
+20:28:15.818 [main] DEBUG org.springframework.web.socket.client.standard.StandardWebSocketClient - Connecting to ws://localhost:8080/websocket-server
+20:28:15.918 [SimpleAsyncTaskExecutor-1] DEBUG org.springframework.messaging.simp.stomp.DefaultStompSession - Failed to connect session id=8e16e45f-41b7-e474-a88c-4542f984181a
+java.util.concurrent.CompletionException: jakarta.websocket.DeploymentException: The HTTP request to initiate the WebSocket connection to [ws://localhost:8080/websocket-server] failed
+	at org.springframework.util.concurrent.FutureUtils.lambda$toSupplier$0(FutureUtils.java:78)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: jakarta.websocket.DeploymentException: The HTTP request to initiate the WebSocket connection to [ws://localhost:8080/websocket-server] failed
+	at org.apache.tomcat.websocket.WsWebSocketContainer.connectToServerRecursive(WsWebSocketContainer.java:451)
+	at org.apache.tomcat.websocket.WsWebSocketContainer.connectToServer(WsWebSocketContainer.java:186)
+	at org.springframework.web.socket.client.standard.StandardWebSocketClient.lambda$executeInternal$0(StandardWebSocketClient.java:150)
+	at org.springframework.util.concurrent.FutureUtils.lambda$toSupplier$0(FutureUtils.java:74)
+	... 2 common frames omitted
+Caused by: java.util.concurrent.ExecutionException: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.PendingFuture.get(PendingFuture.java:200)
+	at org.apache.tomcat.websocket.WsWebSocketContainer.connectToServerRecursive(WsWebSocketContainer.java:331)
+	... 5 common frames omitted
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.checkConnect(Native Method)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.finishConnect(UnixAsynchronousSocketChannelImpl.java:256)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.finish(UnixAsynchronousSocketChannelImpl.java:202)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.onEvent(UnixAsynchronousSocketChannelImpl.java:217)
+	at java.base/sun.nio.ch.KQueuePort$EventHandlerTask.run(KQueuePort.java:312)
+	... 1 common frames omitted
+Exception in thread "main" java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:119)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:95)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58)
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:65)
+Caused by: java.util.concurrent.ExecutionException: jakarta.websocket.DeploymentException: The HTTP request to initiate the WebSocket connection to [ws://localhost:8080/websocket-server] failed
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:396)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2073)
+	at org.springframework.util.concurrent.CompletableToListenableFutureAdapter.get(CompletableToListenableFutureAdapter.java:101)
+	at com.opentelemetry.websocket.WebSocketClientOne.main(WebSocketClientOne.java:25)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	... 5 more
+Caused by: jakarta.websocket.DeploymentException: The HTTP request to initiate the WebSocket connection to [ws://localhost:8080/websocket-server] failed
+	at org.apache.tomcat.websocket.WsWebSocketContainer.connectToServerRecursive(WsWebSocketContainer.java:451)
+	at org.apache.tomcat.websocket.WsWebSocketContainer.connectToServer(WsWebSocketContainer.java:186)
+	at org.springframework.web.socket.client.standard.StandardWebSocketClient.lambda$executeInternal$0(StandardWebSocketClient.java:150)
+	at org.springframework.util.concurrent.FutureUtils.lambda$toSupplier$0(FutureUtils.java:74)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1768)
+	at java.base/java.lang.Thread.run(Thread.java:1589)
+Caused by: java.util.concurrent.ExecutionException: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.PendingFuture.get(PendingFuture.java:200)
+	at org.apache.tomcat.websocket.WsWebSocketContainer.connectToServerRecursive(WsWebSocketContainer.java:331)
+	... 5 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.checkConnect(Native Method)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.finishConnect(UnixAsynchronousSocketChannelImpl.java:256)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.finish(UnixAsynchronousSocketChannelImpl.java:202)
+	at java.base/sun.nio.ch.UnixAsynchronousSocketChannelImpl.onEvent(UnixAsynchronousSocketChannelImpl.java:217)
+	at java.base/sun.nio.ch.KQueuePort$EventHandlerTask.run(KQueuePort.java:312)
+	... 1 more
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.2)
+
+2023-01-27T20:28:16.175+08:00  INFO 71818 --- [           main] c.o.w.WebsocketServerApplication         : Starting WebsocketServerApplication v1.0-SNAPSHOT using Java 19.0.1 with PID 71818 (/Users/mcheng/Documents/git/websocket-client-server/server/target/server-1.0-SNAPSHOT.jar started by mcheng in /Users/mcheng/Documents/git/websocket-client-server)
+2023-01-27T20:28:16.178+08:00  INFO 71818 --- [           main] c.o.w.WebsocketServerApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-01-27T20:28:17.317+08:00  INFO 71818 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-27T20:28:17.333+08:00  INFO 71818 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-27T20:28:17.334+08:00  INFO 71818 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-01-27T20:28:17.438+08:00  INFO 71818 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-27T20:28:17.440+08:00  INFO 71818 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1187 ms
+2023-01-27T20:28:18.285+08:00  INFO 71818 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-27T20:28:18.288+08:00  INFO 71818 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2023-01-27T20:28:18.289+08:00  INFO 71818 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@609640d5]]
+2023-01-27T20:28:18.290+08:00  INFO 71818 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2023-01-27T20:28:18.315+08:00  INFO 71818 --- [           main] c.o.w.WebsocketServerApplication         : Started WebsocketServerApplication in 2.846 seconds (process running for 3.463)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.2)
+
+2023-01-27T20:28:37.027+08:00  INFO 71882 --- [           main] c.o.w.WebsocketServerApplication         : Starting WebsocketServerApplication v1.0-SNAPSHOT using Java 19.0.1 with PID 71882 (/Users/mcheng/Documents/git/websocket-client-server/server/target/server-1.0-SNAPSHOT.jar started by mcheng in /Users/mcheng/Documents/git/websocket-client-server)
+2023-01-27T20:28:37.030+08:00  INFO 71882 --- [           main] c.o.w.WebsocketServerApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-01-27T20:28:37.895+08:00  INFO 71882 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-27T20:28:37.905+08:00  INFO 71882 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-27T20:28:37.905+08:00  INFO 71882 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-01-27T20:28:37.990+08:00  INFO 71882 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-27T20:28:37.991+08:00  INFO 71882 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 909 ms
+2023-01-27T20:28:38.597+08:00  INFO 71882 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-27T20:28:38.599+08:00  INFO 71882 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2023-01-27T20:28:38.599+08:00  INFO 71882 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4fc5e095]]
+2023-01-27T20:28:38.599+08:00  INFO 71882 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2023-01-27T20:28:38.615+08:00  INFO 71882 --- [           main] c.o.w.WebsocketServerApplication         : Started WebsocketServerApplication in 2.038 seconds (process running for 2.427)
+2023-01-27T20:29:38.174+08:00  INFO 71882 --- [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.2)
+
+2023-01-27T20:36:18.295+08:00  INFO 72585 --- [           main] c.o.w.WebsocketServerApplication         : Starting WebsocketServerApplication v1.0-SNAPSHOT using Java 19.0.1 with PID 72585 (/Users/mcheng/Documents/git/websocket-client-server/server/target/server-1.0-SNAPSHOT.jar started by mcheng in /Users/mcheng/Documents/git/websocket-client-server)
+2023-01-27T20:36:18.299+08:00  INFO 72585 --- [           main] c.o.w.WebsocketServerApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-01-27T20:36:19.285+08:00  INFO 72585 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-27T20:36:19.300+08:00  INFO 72585 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-27T20:36:19.301+08:00  INFO 72585 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-01-27T20:36:19.490+08:00  INFO 72585 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-27T20:36:19.493+08:00  INFO 72585 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1127 ms
+2023-01-27T20:36:20.170+08:00  INFO 72585 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-27T20:36:20.171+08:00  INFO 72585 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2023-01-27T20:36:20.172+08:00  INFO 72585 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6b9ce1bf]]
+2023-01-27T20:36:20.172+08:00  INFO 72585 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2023-01-27T20:36:20.183+08:00  INFO 72585 --- [           main] c.o.w.WebsocketServerApplication         : Started WebsocketServerApplication in 2.401 seconds (process running for 2.806)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.2)
+
+2023-01-27T20:36:37.900+08:00  INFO 72637 --- [           main] c.o.w.WebsocketServerApplication         : Starting WebsocketServerApplication v1.0-SNAPSHOT using Java 19.0.1 with PID 72637 (/Users/mcheng/Documents/git/websocket-client-server/server/target/server-1.0-SNAPSHOT.jar started by mcheng in /Users/mcheng/Documents/git/websocket-client-server)
+2023-01-27T20:36:37.903+08:00  INFO 72637 --- [           main] c.o.w.WebsocketServerApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-01-27T20:36:38.679+08:00  INFO 72637 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-27T20:36:38.689+08:00  INFO 72637 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-27T20:36:38.689+08:00  INFO 72637 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-01-27T20:36:38.764+08:00  INFO 72637 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-27T20:36:38.766+08:00  INFO 72637 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 799 ms
+2023-01-27T20:36:39.383+08:00  INFO 72637 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-27T20:36:39.384+08:00  INFO 72637 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2023-01-27T20:36:39.385+08:00  INFO 72637 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@40499e4f]]
+2023-01-27T20:36:39.385+08:00  INFO 72637 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2023-01-27T20:36:39.397+08:00  INFO 72637 --- [           main] c.o.w.WebsocketServerApplication         : Started WebsocketServerApplication in 1.937 seconds (process running for 2.356)
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.2)
+
+2023-01-27T20:37:15.198+08:00  INFO 72719 --- [           main] c.o.w.WebsocketServerApplication         : Starting WebsocketServerApplication v1.0-SNAPSHOT using Java 19.0.1 with PID 72719 (/Users/mcheng/Documents/git/websocket-client-server/server/target/server-1.0-SNAPSHOT.jar started by mcheng in /Users/mcheng/Documents/git/websocket-client-server)
+2023-01-27T20:37:15.201+08:00  INFO 72719 --- [           main] c.o.w.WebsocketServerApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-01-27T20:37:15.940+08:00  INFO 72719 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-27T20:37:15.951+08:00  INFO 72719 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-27T20:37:15.952+08:00  INFO 72719 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-01-27T20:37:16.030+08:00  INFO 72719 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-27T20:37:16.032+08:00  INFO 72719 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 780 ms
+2023-01-27T20:37:16.620+08:00  INFO 72719 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-27T20:37:16.621+08:00  INFO 72719 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2023-01-27T20:37:16.622+08:00  INFO 72719 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7a791b66]]
+2023-01-27T20:37:16.622+08:00  INFO 72719 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2023-01-27T20:37:16.634+08:00  INFO 72719 --- [           main] c.o.w.WebsocketServerApplication         : Started WebsocketServerApplication in 1.803 seconds (process running for 2.17)
+2023-01-27T20:37:20.149+08:00  INFO 72719 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-27T20:37:20.149+08:00  INFO 72719 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-01-27T20:37:20.150+08:00  INFO 72719 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[otel.javaagent 2023-01-27 21:54:32:369 +0800] [main] INFO io.opentelemetry.javaagent.tooling.VersionLogger - opentelemetry-javaagent - version: 1.22.1
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.2)
+
+2023-01-27T21:54:34.930+08:00  INFO 79513 --- [           main] c.o.w.WebsocketServerApplication         : Starting WebsocketServerApplication v1.0-SNAPSHOT using Java 19.0.1 with PID 79513 (/Users/mcheng/Documents/git/websocket-client-server/server/target/server-1.0-SNAPSHOT.jar started by mcheng in /Users/mcheng/Documents/git/websocket-client-server)
+2023-01-27T21:54:34.938+08:00  INFO 79513 --- [           main] c.o.w.WebsocketServerApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-01-27T21:54:36.102+08:00  INFO 79513 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-27T21:54:36.133+08:00  INFO 79513 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-27T21:54:36.133+08:00  INFO 79513 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-01-27T21:54:36.221+08:00  INFO 79513 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-27T21:54:36.223+08:00  INFO 79513 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1226 ms
+2023-01-27T21:54:37.183+08:00  INFO 79513 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-27T21:54:37.184+08:00  INFO 79513 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2023-01-27T21:54:37.185+08:00  INFO 79513 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3d3b272a]]
+2023-01-27T21:54:37.185+08:00  INFO 79513 --- [           main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2023-01-27T21:54:37.195+08:00  INFO 79513 --- [           main] c.o.w.WebsocketServerApplication         : Started WebsocketServerApplication in 2.767 seconds (process running for 5.087)
